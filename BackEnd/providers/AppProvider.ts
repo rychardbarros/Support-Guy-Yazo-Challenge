@@ -1,4 +1,4 @@
-import type { ApplicationContract } from '@ioc:Adonis/Core/Application'
+import { ApplicationContract } from '@ioc:Adonis/Core/Application'
 
 export default class AppProvider {
   constructor(protected app: ApplicationContract) {}
@@ -9,10 +9,12 @@ export default class AppProvider {
 
   public async boot() {
     // IoC container is ready
+    import('App/Shared/Container')
   }
 
   public async ready() {
     // App is ready
+    await import('../start/socket')
   }
 
   public async shutdown() {

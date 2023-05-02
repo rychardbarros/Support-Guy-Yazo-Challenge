@@ -1,14 +1,14 @@
 {
-  "name": "support-guy-yazo-challenge-back",
+  "name": "base-acl-api",
   "version": "1.0.0",
   "private": true,
   "scripts": {
     "dev": "node ace serve --watch",
     "build": "node ace build --production",
     "start": "node server.js",
-    "test": "node ace test",
     "lint": "eslint . --ext=.ts",
-    "format": "prettier --write ."
+    "format": "prettier --write .",
+    "docker": "node ace migration:run && node ace db:seed && node server.js"
   },
   "eslintConfig": {
     "extends": [
@@ -40,28 +40,34 @@
   "devDependencies": {
     "@adonisjs/assembler": "^5.9.5",
     "@japa/preset-adonis": "^1.2.0",
-    "@japa/runner": "^2.5.1",
-    "@types/proxy-addr": "^2.0.0",
-    "@types/source-map-support": "^0.5.6",
+    "@japa/runner": "^2.2.2",
     "adonis-preset-ts": "^2.1.0",
-    "eslint": "^8.39.0",
-    "eslint-config-prettier": "^8.8.0",
+    "eslint": "^8.33.0",
+    "eslint-config-prettier": "^8.6.0",
     "eslint-plugin-adonis": "^2.1.1",
     "eslint-plugin-prettier": "^4.2.1",
-    "pino-pretty": "^10.0.0",
-    "prettier": "^2.8.8",
-    "typescript": "~4.6",
-    "youch": "^3.2.3",
-    "youch-terminal": "^2.2.0"
+    "openapi-types": "^12.1.0",
+    "pino-pretty": "^9.1.1",
+    "prettier": "^2.8.3",
+    "typescript": "^4.9.5",
+    "yarn-upgrade-all": "^0.7.2",
+    "youch": "^3.2.2",
+    "youch-terminal": "^2.1.5"
   },
   "dependencies": {
-    "@adonisjs/core": "^5.8.0",
+    "@adonisjs/auth": "^8.2.3",
+    "@adonisjs/core": "^5.9.0",
     "@adonisjs/lucid": "^18.3.0",
-    "@adonisjs/repl": "^3.1.0",
-    "luxon": "^3.3.0",
-    "pg": "^8.10.0",
+    "@adonisjs/redis": "^7.3.2",
+    "@adonisjs/repl": "^3.1.11",
+    "better-sqlite3": "^8.3.0",
+    "luxon": "^3.2.1",
+    "phc-argon2": "^1.1.4",
     "proxy-addr": "^2.0.7",
     "reflect-metadata": "^0.1.13",
-    "source-map-support": "^0.5.21"
+    "socket.io": "^4.5.4",
+    "source-map-support": "^0.5.21",
+    "sqlite3": "^5.1.6",
+    "tsyringe": "^4.7.0"
   }
 }

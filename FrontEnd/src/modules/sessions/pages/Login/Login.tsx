@@ -1,19 +1,11 @@
-import {
-  ButtonLogin,
-  InputLogin,
-  InputPassword,
-  Logo,
-  WrapperLogin,
-} from "./login.styled";
+import { FormInput } from '../../../../shared/molecules/Form/Form'
+import { WrapperLogin } from './login.styled'
+import { useState } from 'react'
 
-export const Login = () => {
-  return (
-    <WrapperLogin>
-      <Logo src="/src/assets/logo.png"></Logo>
-      <h1>Desafio suporte guy</h1>
-      <InputLogin></InputLogin>
-      <InputPassword></InputPassword>
-      <ButtonLogin>Login</ButtonLogin>
-    </WrapperLogin>
-  );
-};
+export function Login() {
+	return (
+		<WrapperLogin>
+			<FormInput />
+		</WrapperLogin>
+	)
+}

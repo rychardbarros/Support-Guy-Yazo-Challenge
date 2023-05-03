@@ -1,10 +1,10 @@
-import { createGlobalStyle } from "styled-components";
+import { createGlobalStyle } from 'styled-components'
 
 export const GlobalStyle = createGlobalStyle`
 *{
     margin: 0;
     padding: 0;
-    box-sizing: border-box; 
+    box-sizing: border-box;
 }
 html{
     @media(max-width: 1080px) {
@@ -16,7 +16,11 @@ html{
 }
 body{
   font-family: 'roboto', sans-serif;
-  background: #030809;
+  background: #161A2B;
   color: white;
+
+  button{
+    cursor: pointer;
+  }
 }
-`;
+`

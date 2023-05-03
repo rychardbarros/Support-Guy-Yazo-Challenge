@@ -1,6 +1,8 @@
 import { Routes, Route } from "react-router-dom";
 import { Schedule } from "../../modules/schedule/pages/Schedule";
 import { Login } from "../../modules/sessions/pages/Login/Login";
+import { Welcome } from "../../modules/sessions/pages/Welcome/Welcome";
+import { WrapperRoutes } from "./routes.styled";
 
 export const AppRoutes = () => {
   return (
@@ -9,20 +11,29 @@ export const AppRoutes = () => {
         <Route
           path="/"
           element={
-            <div
-              style={{
-                width: "100%",
-                height: "100vh",
-                display: "flex",
-                justifyContent: "center",
-                alignItems: "center",
-              }}
+            <WrapperRoutes
             >
-              <Login />
-            </div>
+              <Welcome/>
+            </WrapperRoutes>
           }
         />
-        <Route path="schedules" element={<Schedule />} />
+
+        <Route path="schedules" element={
+        <WrapperRoutes
+           >
+       <Schedule />
+        </WrapperRoutes>
+
+        } />
+        <Route path="login" element={
+         <WrapperRoutes
+       >
+           <Login />
+       </WrapperRoutes>
+
+     }
+
+        />
       </Route>
     </Routes>
   );

@@ -68,7 +68,7 @@ export const ScheduleCard = () => {
               title="Dan"
             />
             <Image
-              src={MoreUsersImage}
+              src="/src/assets/Frame 16.svg"
               objectFit="cover"
               alt="Dan Abramov"
               borderRadius="full"

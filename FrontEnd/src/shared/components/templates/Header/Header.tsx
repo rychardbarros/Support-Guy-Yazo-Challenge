@@ -1,9 +1,9 @@
-import { Box, Button, Flex, Heading, Text } from '@chakra-ui/react';
+import { Box, Button, Flex, Heading, Highlight, Text } from '@chakra-ui/react';
 import { HelperMessage } from '../../molecules/HelperMessage/HelperMessage';
 import { HeaderProps } from './header.interfaces';
 import { useNavigate } from 'react-router-dom';
 
-export const Header = ({ title }: HeaderProps) => {
+export const Header = ({ title, message }: HeaderProps) => {
   const navigate = useNavigate();
   return (
     <Flex width="100%" flexDirection="column" position="fixed" top="0" zIndex="2">
@@ -17,22 +17,7 @@ export const Header = ({ title }: HeaderProps) => {
           </Heading>
         )}
         <HelperMessage>
-          <Box>
-            <Text>
-              O usuário não consegue acessar nossa plataforma, aparece o erro{' '}
-              <Text as="i">
-                "Não foi possível autenticar, por favor tente novamente mais tarde."
-              </Text>
-              , pode verificar o que pode estar acontecendo?
-            </Text>
-            <Box pt={3}>
-              <Text>
-                <Text as="b">Usuário:</Text>
-                <Text>Email: luciano.jazz@gmail.com</Text>
-                <Text>Senha: luc1Jazz@</Text>
-              </Text>
-            </Box>
-          </Box>
+          <Text>{message}</Text>
         </HelperMessage>
       </Flex>
     </Flex>

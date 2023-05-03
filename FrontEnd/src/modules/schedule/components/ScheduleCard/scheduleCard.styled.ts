@@ -23,7 +23,7 @@ export const LocationContainer = styled(FlexC)`
 `;
 
 export const RightFlexContainer = styled(FlexC)`
-  border-left: 1px solid black;
+  border-left: 1px solid #d9d9d9;
   padding-left: 12px;
 
   flex-direction: column;

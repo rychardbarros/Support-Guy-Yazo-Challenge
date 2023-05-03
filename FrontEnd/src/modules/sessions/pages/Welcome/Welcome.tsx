@@ -1,55 +1,35 @@
-import { Center, Heading, Highlight, Image } from '@chakra-ui/react';
+import { Button, Center, Flex, Heading, Highlight, Image, Text } from '@chakra-ui/react';
 import { ChallengeCard } from '../../components/ChallengeCard/ChallengeCard';
+import { useNavigate } from 'react-router-dom';
 export function Welcome() {
+  const navigate = useNavigate();
+
   return (
     <Center flexDirection="column">
-      <Center>
-        <Image
-          src="/src/assets/logo.png"
-          objectFit="cover"
-          height="120px"
-          width="120px"
-          alt="Dan Abramov"
-        />
-      </Center>
-      <Center flexDirection="column" width="600px" marginBottom="40px">
-        <Heading fontSize={26} color="accent.white.1000">
-          Salveee!
-        </Heading>
-        <Highlight
-          query="Suporte Guy da Yazo"
-          styles={{
-            px: '0.5',
-            py: '0.5',
-            bg: '#303357',
-            color: 'orange',
-            fontSize: '20px',
-          }}
-        >
-          Bem-vindo(a) ao desafio de Suporte Guy da Yazo
-        </Highlight>
-      </Center>
+      <Image src="/src/assets/logo.png" height="114px" width="122px" alt="Logo Yazo" />
 
       <Heading fontSize={26} color="accent.white.1000">
+        Salveee!
+      </Heading>
+      <Text color="accent.white.1000">Bem-vindo(a) ao desafio de Suporte Guy da Yazo.</Text>
+
+      <Heading fontSize={26} color="accent.white.1000" mt="48px">
         Escolha um desafio
       </Heading>
-      <Center gap={4}>
-        <ChallengeCard
-          titleChallenge="Desafio 1 - Tela de Login"
-          link="/login"
-          descriptionChallenge="Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quas corrupti cum animi incidunt atque similique illo nostrum, culpa aut asperiores esse mollitia tempora, voluptates nulla quidem nam doloremque blanditiis libero."
-        />
-        <ChallengeCard
-          titleChallenge="Desafio 2 - Agenda"
-          link="/schedules"
-          descriptionChallenge="Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quas corrupti cum animi incidunt atque similique illo nostrum, culpa aut asperiores esse mollitia tempora, voluptates nulla quidem nam doloremque blanditiis libero."
-        />
-        <ChallengeCard
-          titleChallenge="Desafio 3 - Relatórios"
-          link="/reports"
-          descriptionChallenge="Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quas corrupti cum animi incidunt atque similique illo nostrum, culpa aut asperiores esse mollitia tempora, voluptates nulla quidem nam doloremque blanditiis libero."
-        />
-      </Center>
+      <Flex gap="18px" mt="24px">
+        <Button bg="accent.yellow" w="314px" onClick={() => navigate('/login')} py="30px">
+          Desafio 1 - Tela de Login
+        </Button>
+        <Button bg="accent.yellow" w="314px" onClick={() => navigate('/schedules')} py="30px">
+          Desafio 2 - Agenda
+        </Button>
+        <Button bg="accent.yellow" w="314px" onClick={() => navigate('/reports')} py="30px">
+          Desafio 3 - Relatórios
+        </Button>
+      </Flex>
+      <Text color="accent.white.1000" mt="24px" fontSize="24px" as="b">
+        Boa sorte!
+      </Text>
     </Center>
   );
 }

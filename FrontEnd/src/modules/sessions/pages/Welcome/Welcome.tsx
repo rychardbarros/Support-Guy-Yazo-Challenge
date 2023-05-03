@@ -1,22 +1,5 @@
-import {
-  Badge,
-  Button,
-  ButtonGroup,
-  Center,
-  Flex,
-  Heading,
-  Highlight,
-  Image,
-  LinkBox,
-  LinkOverlay,
-  Stack,
-  Text,
-} from '@chakra-ui/react';
-import { Avatar } from '../../../../shared/atoms/Avatar/Avatar';
-import { ButtonFade } from '../../../../shared/molecules/ButtonFade/ButtonFade';
-import { ChallengeCard } from '../../../../shared/molecules/ChallengeCard/ChallengeCard';
-import { Teste } from '../../../../shared/molecules/Teste/Teste';
-import { Grid, Box } from './welcome.styled';
+import { Center, Heading, Highlight, Image } from '@chakra-ui/react';
+import { ChallengeCard } from '../../components/ChallengeCard/ChallengeCard';
 export function Welcome() {
   return (
     <Center flexDirection="column">
@@ -30,7 +13,9 @@ export function Welcome() {
         />
       </Center>
       <Center flexDirection="column" width="600px" marginBottom="40px">
-        <Heading fontSize={26}>Salveee!</Heading>
+        <Heading fontSize={26} color="accent.white.1000">
+          Salveee!
+        </Heading>
         <Highlight
           query="Suporte Guy da Yazo"
           styles={{
@@ -45,18 +30,23 @@ export function Welcome() {
         </Highlight>
       </Center>
 
-      <Heading fontSize={26}>Escolha um desafio</Heading>
+      <Heading fontSize={26} color="accent.white.1000">
+        Escolha um desafio
+      </Heading>
       <Center gap={4}>
         <ChallengeCard
           titleChallenge="Desafio 1 - Tela de Login"
+          link="/login"
           descriptionChallenge="Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quas corrupti cum animi incidunt atque similique illo nostrum, culpa aut asperiores esse mollitia tempora, voluptates nulla quidem nam doloremque blanditiis libero."
         />
         <ChallengeCard
           titleChallenge="Desafio 2 - Agenda"
+          link="/schedules"
           descriptionChallenge="Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quas corrupti cum animi incidunt atque similique illo nostrum, culpa aut asperiores esse mollitia tempora, voluptates nulla quidem nam doloremque blanditiis libero."
         />
         <ChallengeCard
           titleChallenge="Desafio 3 - Relatórios"
+          link="/reports"
           descriptionChallenge="Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quas corrupti cum animi incidunt atque similique illo nostrum, culpa aut asperiores esse mollitia tempora, voluptates nulla quidem nam doloremque blanditiis libero."
         />
       </Center>

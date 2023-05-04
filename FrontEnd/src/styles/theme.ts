@@ -35,6 +35,9 @@ export const customTheme = extendTheme({
       900: '#F1F6F9',
       1000: '#FFFFFF',
     },
+    yellow: {
+      500: '#F4B700',
+    },
     black: {
       500: '#000000',
     },

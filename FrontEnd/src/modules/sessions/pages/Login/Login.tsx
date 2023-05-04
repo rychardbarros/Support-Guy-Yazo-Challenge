@@ -1,12 +1,4 @@
-import {
-  Box,
-  Button,
-  Center,
-  Flex,
-  Input,
-  Text,
-  useToast,
-} from '@chakra-ui/react';
+import { Button, Center, Flex, Input, Text, useToast } from '@chakra-ui/react';
 import { Form } from 'shared/components/molecules/Form/Form';
 import { useCallback } from 'react';
 import { LoginFormValues } from '../../interfaces/login.interfaces';
@@ -14,15 +6,22 @@ import { useForms } from 'shared/components/molecules/Form/hooks/useForms';
 import { Avatar } from 'shared/components/atoms/Avatar/Avatar';
 import { LoginSchema } from '../../schemas/form.schema';
 import { InputContainer } from './login.styled';
+import { createSessionAPI } from 'modules/sessions/apis/login.apis';
 
 export const Login = () => {
   const toast = useToast();
 
   const onSubmit = useCallback(async (data: LoginFormValues) => {
-    console.log('data', data);
+    const dataNew = {
+      uid: 'root',
+      password: 'acl@2022',
+    };
+
+    await createSessionAPI(dataNew);
 
     toast({
-      description: "We've created your account for you.",
+      description:
+        'Não foi possível autenticar, por favor tente novamente mais tarde.',
       status: 'error',
       variant: 'solid',
       duration: 9000,
@@ -42,6 +41,7 @@ export const Login = () => {
         <Flex flexDirection="column" gap={4} marginTop={8}>
           <InputContainer>
             <Input
+              width="300px"
               placeholder="Insira seu Username"
               borderColor="transparent"
               bg="#242940"
@@ -50,13 +50,12 @@ export const Login = () => {
             />
 
             {errors.username && (
-              <Text className="errors">
-                {errors.username.message || errors.username.message}
-              </Text>
+              <Text>{errors.username.message || errors.username.message}</Text>
             )}
           </InputContainer>
           <InputContainer>
             <Input
+              width="300px"
               placeholder="Insira sua Senha"
               borderColor="transparent"
               focusBorderColor="yellow.500"
@@ -69,7 +68,7 @@ export const Login = () => {
             )}
           </InputContainer>
 
-          <Button bg="orange" width="240px" type="submit" colorScheme="orange">
+          <Button bg="yellow.500" type="submit" width="300px">
             Submit
           </Button>
         </Flex>

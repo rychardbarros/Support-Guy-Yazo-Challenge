@@ -1,4 +1,4 @@
-import { FormInput } from '../../../../shared/molecules/Form/Form'
+import { FormInput } from '../../../../shared/components/molecules/Form/Form'
 import { WrapperLogin } from './login.styled'
 import { useState } from 'react'
 

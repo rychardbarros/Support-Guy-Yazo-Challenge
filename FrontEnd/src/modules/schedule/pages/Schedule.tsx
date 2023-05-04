@@ -1,20 +1,15 @@
-import { Flex, Heading, Tooltip } from '@chakra-ui/react'
+import { Flex } from '@chakra-ui/react';
+import { ScheduleCard } from '../components/ScheduleCard/ScheduleCard';
+import { SearchBar } from '../../../shared/components/molecules/SearchBar/SearchBar';
 
 export const Schedule = () => {
-	return (
-		<Flex width="100%" height="100vh" flexDirection="column">
-			<Flex
-				alignItems="center"
-				bg="blue.800"
-				width="100%"
-				height="auto"
-				justifyContent="space-around"
-			>
-				<Heading fontSize="1.5rem">Desafio 2 - Agenda</Heading>
-				<Tooltip label="Hey, I'm here!" aria-label="A tooltip">
-          Tooltip[botar icon]
-				</Tooltip>
-			</Flex>
-		</Flex>
-	)
-}
+  return (
+    <Flex gap="8px" flexDirection="column">
+      <SearchBar />
+      <ScheduleCard />
+      <ScheduleCard />
+      <ScheduleCard />
+      <ScheduleCard />
+    </Flex>
+  );
+};

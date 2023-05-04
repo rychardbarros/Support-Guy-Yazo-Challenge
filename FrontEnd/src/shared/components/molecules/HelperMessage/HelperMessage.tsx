@@ -16,11 +16,11 @@ export const HelperMessage = ({ children }: HelperMessageProps) => {
     <Popover placement="top-start">
       <PopoverTrigger>
         <Button variant="unstyled">
-          <Icon as={AiOutlineQuestionCircle} boxSize="34px" color="accent.white.1000" />
+          <Icon as={AiOutlineQuestionCircle} boxSize="34px" color="white.1000" />
         </Button>
       </PopoverTrigger>
-      <PopoverContent bg="accent.white.800">
-        <PopoverArrow bg="accent.white.800" />
+      <PopoverContent bg="white.800">
+        <PopoverArrow bg="white.800" />
         <PopoverBody>{children}</PopoverBody>
       </PopoverContent>
     </Popover>

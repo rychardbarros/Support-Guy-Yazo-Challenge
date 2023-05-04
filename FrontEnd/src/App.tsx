@@ -1,5 +1,5 @@
-import { AppRoutes } from "./shared/routes/App.routes";
-import { BrowserRouter } from "react-router-dom";
+import { AppRoutes } from './shared/routes/App.routes';
+import { BrowserRouter } from 'react-router-dom';
 
 function App() {
   return (

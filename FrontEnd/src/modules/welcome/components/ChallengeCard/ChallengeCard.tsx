@@ -10,12 +10,12 @@ export function ChallengeCard({ titleChallenge, descriptionChallenge, link }: Ch
         {titleChallenge}
       </Box>
 
-      <Text mb="3" color="accent.white.1000">
+      <Text mb="3" color="white.1000">
         {descriptionChallenge}
       </Text>
       <Button
-        bg="accent.yellow"
-        color="accent.black"
+        bg="yellow.500"
+        color="black.500"
         fontWeight="bold"
         onClick={() => navigate(link)}
       >

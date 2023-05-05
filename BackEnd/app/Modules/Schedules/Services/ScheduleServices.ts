@@ -18,10 +18,14 @@ export default class ScheduleServices {
     public async list({
         page = 1,
         perPage = 10,
+        search,
     }: DTOs.List): Promise<PaginateContractType<typeof Schedule>> {
         return this.schedulesRepository.listWithPagination({ 
             page,
-            perPage
+            perPage,
+            scopes: (scopes) => {
+                scopes.searchQueryScope(search)
+            }
         })
     }
 

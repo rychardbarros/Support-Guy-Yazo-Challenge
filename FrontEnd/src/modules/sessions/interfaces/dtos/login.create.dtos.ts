@@ -1,4 +1,4 @@
-import { ILogin } from '../login.interfaces';
+import { IUser } from '../login.interfaces';
 import { AxiosResponse } from 'axios';
 
 export type ICreateLoginDTO = {
@@ -6,4 +6,4 @@ export type ICreateLoginDTO = {
   password: string;
 };
 
-export type ICreateLoginAPI = Promise<AxiosResponse<ILogin>>;
+export type ICreateLoginAPI = Promise<AxiosResponse<IUser>>;

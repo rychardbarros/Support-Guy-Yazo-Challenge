@@ -7,8 +7,11 @@ import {
   RightFlexContainer,
   TitleContainer,
 } from './scheduleCard.styled';
+import { ScheduleCardProps } from './schedulecard.interfaces';
 
-export const ScheduleCard = () => {
+export const ScheduleCard = (data: ScheduleCardProps) => {
+  const { id, startTime, endTime, tag, title, users } = data;
+  console.log(data)
   return (
     <Container bg="white.900">
       <Flex justify="space-between">
@@ -40,11 +43,7 @@ export const ScheduleCard = () => {
 
           <LocationContainer>
             <Flex>
-              <Icon
-                as={IoLocationOutline}
-                boxSize="18px"
-                color="black.500"
-              />
+              <Icon as={IoLocationOutline} boxSize="18px" color="black.500" />
             </Flex>
             <Text>Na casa do lago</Text>
           </LocationContainer>

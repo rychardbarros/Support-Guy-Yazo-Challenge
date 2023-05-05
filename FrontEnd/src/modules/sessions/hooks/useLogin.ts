@@ -1,5 +1,5 @@
 import { APIStatus, useApiStatus } from 'shared/hooks/useApiStatus';
-import { ILogin } from '../interfaces/login.interfaces';
+import { IUser } from '../interfaces/login.interfaces';
 import {
   ICreateLoginAPI,
   ICreateLoginDTO,
@@ -7,12 +7,12 @@ import {
 import { useLoginRepository } from '../repositories/implementations/login.repository';
 import { useCreateLoginController } from '../useCases/login/createLogin/createLogin.controller';
 
-export type UseDataClipQueryData = {
+export type UseLoginData = {
   status: APIStatus;
-  data: ILogin[];
+  data: IUser | undefined;
   createLogin: (data: ICreateLoginDTO) => ICreateLoginAPI;
 };
-export const useLogin = (): UseDataClipQueryData => {
+export const useLogin = (): UseLoginData => {
   const { changeStatus, status } = useApiStatus();
   const repository = useLoginRepository();
 

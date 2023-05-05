@@ -1,17 +1,17 @@
+import { useCallback } from 'react';
+import { useToast } from '@chakra-ui/react';
 import {
   ICreateLoginAPI,
   ICreateLoginDTO,
 } from 'modules/sessions/interfaces/dtos/login.create.dtos';
-import { ILoginRepository } from 'modules/sessions/repositories/ILoginRepository';
-import { useCallback } from 'react';
+import { IUserRepository } from 'modules/sessions/repositories/IUserRepository';
 
 import { APIStatus } from 'shared/hooks/useApiStatus';
-import { useCreateLoginUseCase } from './createLogin.useCase';
-import { useToast } from '@chakra-ui/react';
+import { useCreateLoginUseCase } from 'modules/schedule/useCases/schedule/ListSchedule/ListSchedule.useCase';
 
 type UseCreateLoginController = {
   changeStatus: (status: APIStatus) => void;
-  repository: ILoginRepository;
+  repository: IUserRepository;
 };
 
 export const useCreateLoginController = ({
@@ -27,7 +27,7 @@ export const useCreateLoginController = ({
         changeStatus('pending');
         const response = await execute(data);
 
-        changeStatus('listSuccess');
+        changeStatus('success');
 
         toast({
           description: 'Seja bem-vindo!',

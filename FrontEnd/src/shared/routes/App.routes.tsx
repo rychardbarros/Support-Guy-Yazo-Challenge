@@ -25,8 +25,8 @@ export const AppRoutes = () => {
               title="Desafio 1 - Login"
               message="O usuário não consegue acessar nossa plataforma, aparece o erro 'Não foi possível autenticar, por favor tente novamente mais tarde'., pode verificar o que pode estar acontecendo?
               Usuário:
-              Email: luciano.jazz@gmail.com
-              Senha: luc2Jazz5@"
+              Usuário: max
+              Senha: 123456"
             >
               <Login />
             </WrapperRoutes>

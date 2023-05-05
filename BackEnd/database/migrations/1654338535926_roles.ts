@@ -15,7 +15,7 @@ export default class extends BaseSchema {
 
         table.boolean('deletable').notNullable().defaultTo(true)
         table.boolean('is_active').notNullable().defaultTo(true)
-        table.boolean('is_deleted').notNullable().defaultTo(false)
+        table.boolean('is_deleted').notNullable().defaultTo(false) 
 
         table.timestamp('created_at', { useTz: true })
         table.timestamp('updated_at', { useTz: true })

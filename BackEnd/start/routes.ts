@@ -29,3 +29,4 @@ Route.get('/health', async ({ response }) => {
 
 import 'App/Modules/Accounts/Routes/AdminRoutes'
 import 'App/Modules/Accounts/Routes/UserRoutes'
+import 'App/Modules/Schedules/Routes/UserRoutes'

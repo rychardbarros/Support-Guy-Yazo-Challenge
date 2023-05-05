@@ -13,6 +13,7 @@ export default class UsersSchema extends BaseSchema {
         table.string('last_name', 80).notNullable().index('user_last_name_index')
         table.string('username', 50).notNullable().unique().index('username_index')
         table.string('email', 255).notNullable().unique().index('user_email_index')
+        table.string('source_image', 255).notNullable().index('user_source_image_index')
         table.string('password', 180).notNullable()
 
         table.string('remember_me_token').nullable()

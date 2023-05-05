@@ -28,7 +28,7 @@ export default class User extends BaseModel {
    * ------------------------------------------------------
    * - column typing struct
    */
-  @column({ isPrimary: true }) 
+  @column({ isPrimary: true })
   public id: number
 
   @computed()
@@ -47,6 +47,9 @@ export default class User extends BaseModel {
 
   @column()
   public email: string
+
+  @column()
+  public source_image: string
 
   @column({ serializeAs: null })
   public password: string

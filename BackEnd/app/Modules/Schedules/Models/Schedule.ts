@@ -3,6 +3,8 @@ import {
     column,
     manyToMany,
     ManyToMany,
+    afterFetch,
+    afterPaginate,
   } from '@ioc:Adonis/Lucid/Orm'
 import BaseModel from 'App/Shared/Models/BaseModel'
 
@@ -39,13 +41,28 @@ export default class Schedule extends BaseModel {
     @column.dateTime({ autoUpdate: true, serializeAs: null })
     public deleted_at: DateTime
 
+   /**
+   * ------------------------------------------------------
+   * Hooks
+   * ------------------------------------------------------
+   */
+
+   @afterFetch()
+   @afterPaginate()
+   public static async loadRelationsOnPaginate(schedules: Array<Schedule>): Promise<void> {
+     for (const schedule of schedules) await schedule.load('tags', (builder) => builder.orderBy('title'))
+     for (const schedule of schedules) await schedule.load('users', (builder) => builder.orderBy('first_name'))
+   }
+
+
+
     /**
    * ------------------------------------------------------
    * Relationships
    * ------------------------------------------------------
    * - define User model relationships
    */
-    @manyToMany(() => Tag, {
+    @manyToMany(() => Tag, { 
         localKey: 'id',
         pivotForeignKey: 'schedule_id',
         relatedKey: 'id',

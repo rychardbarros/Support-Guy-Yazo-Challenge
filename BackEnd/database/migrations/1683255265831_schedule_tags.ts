@@ -2,36 +2,39 @@ import BaseSchema from '@ioc:Adonis/Lucid/Schema'
 import Logger from '@ioc:Adonis/Core/Logger'
 
 export default class extends BaseSchema {
-  protected tableName = 'users_roles'
+  protected tableName = 'schedule_tags'
 
-  public async up() {
+  public async up () {
     if (!(await this.schema.hasTable(this.tableName)))
       this.schema.createTable(this.tableName, (table) => {
-        table.integer('id').unsigned().primary().index('users_roles_id_index') 
+        table.increments('id').unsigned().primary().index('schedule_tags_id_index')
 
         table
-          .integer('user_id')
+          .integer('schedule_id')
           .references('id')
-          .inTable('users')
+          .inTable('schedules')
           .notNullable()
           .onDelete('CASCADE')
           .onUpdate('CASCADE')
 
         table
-          .integer('role_id')
+          .integer('tag_id')
           .references('id')
-          .inTable('roles')
+          .inTable('tags')
           .notNullable()
           .onDelete('CASCADE')
           .onUpdate('CASCADE')
 
+        /**
+         * Uses timestamptz for PostgreSQL and DATETIME2 for MSSQL
+         */
         table.timestamp('created_at', { useTz: true }).defaultTo('now()')
         table.timestamp('updated_at', { useTz: true }).defaultTo('now()')
       })
-    else Logger.info('UsersRoles migration already running')
+      else Logger.info('ScheduleTags migration already running')
   }
 
-  public async down() {
+  public async down () {
     this.schema.dropTable(this.tableName)
   }
 }

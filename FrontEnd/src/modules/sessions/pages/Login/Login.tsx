@@ -1,38 +1,31 @@
-import { Button, Center, Flex, Input, Text, useToast } from '@chakra-ui/react';
+import { Button, Center, Flex, Input, Text } from '@chakra-ui/react';
 import { Form } from 'shared/components/molecules/Form/Form';
 import { useCallback } from 'react';
-import { LoginFormValues } from '../../interfaces/login.interfaces';
+import { ILogin } from '../../interfaces/login.interfaces';
 import { useForms } from 'shared/components/molecules/Form/hooks/useForms';
 import { Avatar } from 'shared/components/atoms/Avatar/Avatar';
 import { LoginSchema } from '../../schemas/form.schema';
 import { InputContainer } from './login.styled';
-import { createSessionAPI } from 'modules/sessions/apis/login.apis';
+import {
+  LoginType,
+  useHandleLogin,
+} from 'modules/sessions/handlers/login.handlers';
+import { useLogin } from 'modules/sessions/hooks/useLogin';
 
 export const Login = () => {
-  const toast = useToast();
+  const { handleLogin } = useHandleLogin();
+  const { createLogin, data, status } = useLogin();
 
-  const onSubmit = useCallback(async (data: LoginFormValues) => {
-    const dataNew = {
-      uid: 'root',
-      password: 'acl@2022',
-    };
+  const onSubmit = useCallback(async (data: LoginType) => {
 
-    await createSessionAPI(dataNew);
+    createLogin(handleLogin(data))
 
-    toast({
-      description:
-        'Não foi possível autenticar, por favor tente novamente mais tarde.',
-      status: 'error',
-      variant: 'solid',
-      duration: 9000,
-      isClosable: true,
-    });
   }, []);
-
+  console.log(data);
   const { schemaLogin } = LoginSchema();
   const { useFormGeneric } = useForms();
   const { handleSubmit, errors, register } =
-    useFormGeneric<LoginFormValues>(schemaLogin);
+    useFormGeneric<ILogin>(schemaLogin);
 
   return (
     <Center>

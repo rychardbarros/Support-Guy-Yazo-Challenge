@@ -19,6 +19,7 @@ export namespace IUser {
       username: string
       email: string
       roles?: Array<string>
+      source_image: string
     }
 
     export type Edit = {

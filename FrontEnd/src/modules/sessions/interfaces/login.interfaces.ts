@@ -1,4 +1,5 @@
-export interface LoginFormValues {
+export interface ILogin {
+  id: number;
   username: string;
   password: string;
 }

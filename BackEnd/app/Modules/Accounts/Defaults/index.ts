@@ -43,6 +43,7 @@ export const UsersDefault: Array<UserDefaultType> = [
     email: 'root@acl.com',
     password: 'acl@2022',
     roleName: 'root',
+    source_image: 'https://i.pinimg.com/550x/46/72/d1/4672d1ad2948c2f671796826409c3897.jpg'
   },
   {
     first_name: 'Admin',
@@ -51,6 +52,7 @@ export const UsersDefault: Array<UserDefaultType> = [
     email: 'Admin@acl.com',
     password: 'acl@2022',
     roleName: 'Admin',
+    source_image: 'https://i.pinimg.com/736x/5b/a1/d6/5ba1d665944e077a70533c78e6022475.jpg'
   },
   {
     first_name: 'Gabriel',
@@ -59,5 +61,6 @@ export const UsersDefault: Array<UserDefaultType> = [
     email: 'gabriel.maia@acl.com',
     password: 'acl@2022',
     roleName: 'user',
+    source_image: 'https://culturardotblog.files.wordpress.com/2022/07/megumi.jpg'
   },
 ]

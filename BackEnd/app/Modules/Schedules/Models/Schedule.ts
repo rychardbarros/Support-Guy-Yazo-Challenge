@@ -93,8 +93,6 @@ export default class Schedule extends BaseModel {
       fields.forEach(
         (field, i) => (sql = `${sql} ${i !== 0 ? ' or ' : ' '} ${field} like LOWER('%${search}%')`)
       )
-
-      console.log(sql)
   
       return query.whereRaw(`(${sql})`)
     })

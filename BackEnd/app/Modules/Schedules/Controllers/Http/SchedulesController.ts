@@ -10,7 +10,6 @@ export default class SchedulesController {
         const search = request.input('search', '')
         const scheduleServices = container.resolve(ScheduleServices)
 
-        console.log({search})
         const schedules = await scheduleServices.list({page, perPage, search})
         return response.json(schedules)
     }

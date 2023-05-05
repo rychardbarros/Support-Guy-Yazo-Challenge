@@ -4,6 +4,7 @@ import { Schedule } from 'modules/schedule/pages/Schedule';
 import { Login } from 'modules/sessions/pages/Login/Login';
 import { Welcome } from 'modules/welcome/pages/Welcome/Welcome';
 import { WrapperRoutes } from 'shared/components/templates/WrapperRoutes/WrapperRoutes';
+import { Reports } from '../../modules/reports/pages/Reports';
 
 export const AppRoutes = () => {
   return (
@@ -58,7 +59,7 @@ export const AppRoutes = () => {
 
             E realizar as respectivas querys no banco de dados."
             >
-              <Text>Relatórios top</Text>
+              <Reports />
             </WrapperRoutes>
           }
         />

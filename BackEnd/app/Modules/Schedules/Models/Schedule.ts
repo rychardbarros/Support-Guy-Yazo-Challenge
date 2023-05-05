@@ -5,6 +5,7 @@ import {
     ManyToMany,
     afterFetch,
     afterPaginate,
+    scope,
   } from '@ioc:Adonis/Lucid/Orm'
 import BaseModel from 'App/Shared/Models/BaseModel'
 
@@ -80,5 +81,22 @@ export default class Schedule extends BaseModel {
       })
       public users: ManyToMany<typeof User>
 
+    /**
+   * ------------------------------------------------------
+   * Query Scopes
+   * ------------------------------------------------------
+   */
+    public static searchQueryScope = scope((query, search) => {
+      const fields = ['title']
+      let sql = ''
+  
+      fields.forEach(
+        (field, i) => (sql = `${sql} ${i !== 0 ? ' or ' : ' '} ${field} like LOWER('%${search}%')`)
+      )
+
+      console.log(sql)
+  
+      return query.whereRaw(`(${sql})`)
+    })
 
 }

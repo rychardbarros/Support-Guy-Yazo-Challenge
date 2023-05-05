@@ -11,6 +11,7 @@ export namespace ISchedule {
         export type List = {
             page: number
             perPage: number
+            search: string
         }
 
         export type Store = {

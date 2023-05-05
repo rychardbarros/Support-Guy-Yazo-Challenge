@@ -4,7 +4,7 @@ import {
   IListScheduleDTO,
 } from '../interfaces/dtos/schedule.list.dtos';
 
-const validToken = 'Mzk.92idKDVN3U3jTQBJPE2aJ3Kph2Kx9gLCH3etn9MNRT3KGFvDbLqyCwrCoqpH'
+const validToken = 'NTE.N8Uws75OshcSqas5g1uUUoHUaelocU9pYq_q8dVmYYZlKHWbdRwDu9EgJeWq'
 
 export const listScheduleAPI = (data: IListScheduleDTO): IListScheduleAPI =>
   api.get('schedules', {

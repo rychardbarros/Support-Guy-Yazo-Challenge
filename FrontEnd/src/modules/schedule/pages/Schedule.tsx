@@ -29,13 +29,13 @@ export const Schedule = () => {
         isSearching={false}
         onChange={(value: string) => setSearch(value)}
       />
-      {/* {schedules.map(schedule => (
+      {schedules.map(schedule => (
         <ScheduleCard data={handleSchedule(schedule)}/>
-        ))} */}
+        ))}
+      {/* <ScheduleCard />
       <ScheduleCard />
       <ScheduleCard />
-      <ScheduleCard />
-      <ScheduleCard />
+      <ScheduleCard /> */}
     </Flex>
   );
 };

@@ -9,9 +9,9 @@ import {
 } from './scheduleCard.styled';
 import { ScheduleCardProps } from './schedulecard.interfaces';
 
-export const ScheduleCard = (data: ScheduleCardProps) => {
-  const { id, startTime, endTime, tag, title, users } = data;
-  console.log(data)
+export const ScheduleCard = ({ data }: ScheduleCardProps) => {
+  const { id, day, startTime, endTime, tags, title, users } = data;
+  console.log(day, startTime);
   return (
     <Container bg="white.900">
       <Flex justify="space-between">
@@ -19,26 +19,19 @@ export const ScheduleCard = (data: ScheduleCardProps) => {
           <TitleContainer>
             <Icon as={BsBalloon} boxSize="24px" color="black.500" />
             <Text color="blue.400" as="b" fontSize="32px">
-              Festinha Dev Yazo
+              {title}
             </Text>
-            <Box
-              bg="green.500"
-              borderRadius="8px"
-              p="6px"
-              color="blue.300"
-              as="b"
-            >
-              Festinha
-            </Box>
-            <Box
-              bg="orange.500"
-              borderRadius="8px"
-              p="6px"
-              color="blue.300"
-              as="b"
-            >
-              Devs
-            </Box>
+            {tags.map(tag => (
+              <Box
+                bg={tag.color}
+                borderRadius="8px"
+                p="6px"
+                color="blue.300"
+                as="b"
+              >
+                {tag.title}
+              </Box>
+            ))}
           </TitleContainer>
 
           <LocationContainer>
@@ -49,38 +42,16 @@ export const ScheduleCard = (data: ScheduleCardProps) => {
           </LocationContainer>
 
           <Flex gap="16px">
-            <Image
-              src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTh9h7hpVIHaLYalBISnldpCoxOrybqBo0CUi_m-r-Yqh0LFxefLXSdj-Ikbo6lyFHjDfc&usqp=CAU"
-              objectFit="cover"
-              alt="Dan Abramov"
-              borderRadius="full"
-              boxSize="44px"
-              title="Dan"
-            />
-            <Image
-              src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTh9h7hpVIHaLYalBISnldpCoxOrybqBo0CUi_m-r-Yqh0LFxefLXSdj-Ikbo6lyFHjDfc&usqp=CAU"
-              objectFit="cover"
-              alt="Dan Abramov"
-              borderRadius="full"
-              boxSize="44px"
-              title="Dan"
-            />
-            <Image
-              src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTh9h7hpVIHaLYalBISnldpCoxOrybqBo0CUi_m-r-Yqh0LFxefLXSdj-Ikbo6lyFHjDfc&usqp=CAU"
-              objectFit="cover"
-              alt="Dan Abramov"
-              borderRadius="full"
-              boxSize="44px"
-              title="Dan"
-            />
-            <Image
-              src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTh9h7hpVIHaLYalBISnldpCoxOrybqBo0CUi_m-r-Yqh0LFxefLXSdj-Ikbo6lyFHjDfc&usqp=CAU"
-              objectFit="cover"
-              alt="Dan Abramov"
-              borderRadius="full"
-              boxSize="44px"
-              title="Dan"
-            />
+            {users.map(user => (
+              <Image
+                src={user.souce_image}
+                objectFit="cover"
+                alt={user.first_name}
+                borderRadius="full"
+                boxSize="44px"
+                title={user.first_name}
+              />
+            ))}
             <Image
               src="/src/assets/Frame 16.svg"
               objectFit="cover"
@@ -94,10 +65,10 @@ export const ScheduleCard = (data: ScheduleCardProps) => {
 
         <RightFlexContainer>
           <Text color="blue.400" as="b" fontSize="18px">
-            22 Junho
+            {day}
           </Text>
-          <Text>16:00</Text>
-          <Text>22:00</Text>
+          <Text>{startTime}</Text>
+          <Text>{endTime}</Text>
         </RightFlexContainer>
       </Flex>
     </Container>

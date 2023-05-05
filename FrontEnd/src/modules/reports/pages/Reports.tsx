@@ -14,7 +14,7 @@ export function Reports() {
         height="114px"
         width="122px"
         alt="Logo Yazo"
-        marginBottom="140px"
+        // marginBottom="140px"
       />
       <Heading fontSize={26} color="yellow.500">
         Para este desafio precisamos que você tire um relatório das agendas:

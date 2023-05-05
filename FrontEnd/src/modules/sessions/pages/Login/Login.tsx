@@ -27,10 +27,7 @@ export const Login = () => {
   return (
     <Center>
       <Form handleSubmit={handleSubmit(onSubmit)}>
-        <Avatar data={handleLogin(data)}
-          // src={data ? data.user.source_image : 'src/assets/logo.png'}
-          // title={data && data.user.first_name}
-        />
+        <Avatar data={handleLogin(data)} />
 
         <Flex flexDirection="column" gap={4} marginTop={8}>
           <InputContainer>

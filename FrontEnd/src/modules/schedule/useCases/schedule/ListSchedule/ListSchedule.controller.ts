@@ -4,7 +4,7 @@ import {
   IListScheduleDTO,
 } from 'modules/schedule/interfaces/dtos/schedule.list.dtos';
 import { IScheduleRepository } from 'modules/schedule/repositories/IScheduleRepository';
-import { useListScheduleUseCase } from 'modules/sessions/useCases/login/createLogin/createLogin.useCase';
+import { useListScheduleUseCase } from './ListSchedule.useCase';
 import { APIStatus } from 'shared/hooks/useApiStatus';
 
 type UseListScheduleController = {

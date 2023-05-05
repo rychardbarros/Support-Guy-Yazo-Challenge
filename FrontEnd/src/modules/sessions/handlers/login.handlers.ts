@@ -19,10 +19,8 @@ export const useHandleLogin = () => {
   }, []);
 
   const handleLogin = useCallback((data: IUser | undefined): IUserAvatar => {
-    console.log(data);
     if (data) {
       const { user } = data;
-      console.log(user);
 
       return {
         sourceImage: user.source_image,

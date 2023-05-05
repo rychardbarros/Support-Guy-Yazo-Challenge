@@ -1,17 +1,17 @@
 import { useCallback } from 'react';
-import { listScheduleAPI } from 'modules/schedule/apis/schedule.apis';
-import { IScheduleRepository } from 'modules/schedule/repositories/IScheduleRepository';
-import { IListScheduleDTO } from 'modules/schedule/interfaces/dtos/schedule.list.dtos';
+import { createLoginAPI } from 'modules/sessions/apis/login.apis';
+import { ICreateLoginDTO } from 'modules/sessions/interfaces/dtos/login.create.dtos';
+import { IUserRepository } from 'modules/sessions/repositories/ILoginRepository';
 
-export const useListScheduleUseCase = ({ appendList }: IScheduleRepository) => {
+export const useCreateLoginUseCase = ({ create }: IUserRepository) => {
   const execute = useCallback(
-    async (data: IListScheduleDTO) => {
-      const response = await listScheduleAPI(data);
-      appendList?.(response.data.data);
+    async (data: ICreateLoginDTO) => {
+      const response = await createLoginAPI(data);
+      create?.(response.data);
 
-      return response;
+      return response.data;
     },
-    [appendList]
+    [create]
   );
 
   return { execute };

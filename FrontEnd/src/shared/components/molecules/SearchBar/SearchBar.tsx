@@ -1,9 +1,7 @@
-import { Box, Button, Flex, Icon, Input } from '@chakra-ui/react';
+import { Flex, Input } from '@chakra-ui/react';
 import { SearchBarProps } from './searchbar.interfaces';
-import { useRef, useState } from 'react';
+import { useRef } from 'react';
 import { debounceEvent } from '../../../utils/forms/form.utils';
-import { isStringEmpty } from '../../../utils/strings/strings.utils';
-import { AiOutlineCloseCircle } from 'react-icons/ai';
 
 export const SearchBar = ({
   placeholder,
@@ -14,23 +12,13 @@ export const SearchBar = ({
   style,
   ...rest
 }: SearchBarProps) => {
-  const [searchBar, setSearchBar] = useState<string>('');
 
   const inputRef = useRef<HTMLInputElement>(null);
 
   const onSearchChange = () => {
     if (inputRef.current) {
       onChange(inputRef.current.value);
-      setSearchBar(inputRef.current.value);
     }
-  };
-
-  const clearSearchBar = () => {
-    onChange('');
-    if (inputRef.current) {
-      inputRef.current.value = '';
-    }
-    setSearchBar('');
   };
 
   return (
@@ -46,11 +34,6 @@ export const SearchBar = ({
           variant="filled"
           borderEndRadius={isSearching ? 0 : 8}
         />
-        {!isSearching && !isStringEmpty(searchBar) && (
-          <Button onClick={clearSearchBar} borderStartRadius={0}>
-            <Icon as={AiOutlineCloseCircle} boxSize="24px" />
-          </Button>
-        )}
       </Flex>
     </Flex>
   );

@@ -6,10 +6,11 @@ import { IScheduleRepository } from '../IScheduleRepository';
 
 export const useScheduleRepository = (): IScheduleRepository => {
   const [data, setData] = useState<ISchedule[]>([]);
-  const { appendList } = useSideEffects<ISchedule>(setData);
+  const { appendList, replaceList } = useSideEffects<ISchedule>(setData);
 
   return {
     data,
     appendList,
+    replaceList,
   };
 };

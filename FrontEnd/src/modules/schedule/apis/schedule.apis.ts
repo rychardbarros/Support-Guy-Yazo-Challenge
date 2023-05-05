@@ -4,11 +4,19 @@ import {
   IListScheduleDTO,
 } from '../interfaces/dtos/schedule.list.dtos';
 
-const validToken = 'NTE.N8Uws75OshcSqas5g1uUUoHUaelocU9pYq_q8dVmYYZlKHWbdRwDu9EgJeWq'
+const validToken =
+  'NTI.qqG90TMWhx8TxUOumwctrdQiHdPFAJmS5dM1KW4RXE07QPweEVKvLZMFQzbn';
 
-export const listScheduleAPI = (data: IListScheduleDTO): IListScheduleAPI =>
+export const listScheduleAPI = ({
+  page,
+  search,
+}: IListScheduleDTO): IListScheduleAPI =>
   api.get('schedules', {
     headers: {
-      'Authorization': 'Bearer ' + validToken
-    }
+      Authorization: 'Bearer ' + validToken,
+    },
+    params: {
+      page,
+      search,
+    },
   });

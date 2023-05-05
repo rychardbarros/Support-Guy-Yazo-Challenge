@@ -10,8 +10,8 @@ import {
 import { ScheduleCardProps } from './schedulecard.interfaces';
 
 export const ScheduleCard = ({ data }: ScheduleCardProps) => {
-  const { id, day, startTime, endTime, tags, title, users } = data;
-  console.log(day, startTime);
+  const { day, startTime, endTime, tags, place, title, users } = data;
+
   return (
     <Container bg="white.900">
       <Flex justify="space-between">
@@ -38,7 +38,7 @@ export const ScheduleCard = ({ data }: ScheduleCardProps) => {
             <Flex>
               <Icon as={IoLocationOutline} boxSize="18px" color="black.500" />
             </Flex>
-            <Text>Na casa do lago</Text>
+            <Text>{place}</Text>
           </LocationContainer>
 
           <Flex gap="16px">
@@ -50,6 +50,7 @@ export const ScheduleCard = ({ data }: ScheduleCardProps) => {
                 borderRadius="full"
                 boxSize="44px"
                 title={user.first_name}
+                key={user.id}
               />
             ))}
             <Image

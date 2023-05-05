@@ -2,6 +2,7 @@ import { useCallback, useState } from "react";
 
 export type APIStatus =
   | 'pending'
+  | 'paging'
   | 'idle'
   | 'searching'
   | 'error'

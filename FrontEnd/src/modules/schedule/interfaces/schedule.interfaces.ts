@@ -5,6 +5,7 @@ export interface ISchedule {
   start_time: string;
   end_time: string;
   tags: ITag;
+  place: string;
   title: string;
   users: IUser[];
 }

@@ -5,7 +5,7 @@ import { ScheduleCardProps } from '../components/ScheduleCard/schedulecard.inter
 export const useHandleSchedule = () => {
   const handleSchedule = useCallback(
     (schedule: ISchedule): ScheduleCardProps => {
-      const { id, start_time, end_time, tags, title, users } = schedule;
+      const { start_time, end_time, tags, place, title, users } = schedule;
       const dateStart = new Date(start_time);
       const dateEnd = new Date(end_time);
 
@@ -23,11 +23,11 @@ export const useHandleSchedule = () => {
       });
 
       return {
-        id,
         day,
         startTime,
         endTime,
         tags,
+        place,
         title,
         users,
       };

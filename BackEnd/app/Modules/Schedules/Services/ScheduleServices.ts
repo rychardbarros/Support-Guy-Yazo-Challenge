@@ -30,4 +30,18 @@ export default class ScheduleServices {
 
         return schedule.refresh()
     }
+
+    public async storeDefault(): Promise<void> {
+        for (const data of SchedulesDefault) {
+            const {tagIds, userIds, ...scheduleDto} = data
+            const schedule = await this.schedulesRepository.store(scheduleDto)
+            for(const tag of tagIds) {
+                console.log({tag})
+                await schedule.related('tags').attach(tag)
+            }
+            for(const user of userIds) {
+                await schedule.related('users').attach(user)
+            }
+        }
+    }
 }

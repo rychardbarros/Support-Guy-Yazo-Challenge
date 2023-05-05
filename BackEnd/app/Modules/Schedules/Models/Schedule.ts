@@ -7,6 +7,7 @@ import {
 import BaseModel from 'App/Shared/Models/BaseModel'
 
 import User from 'App/Modules/Accounts/Models/User'
+import Tag from 'App/Modules/Tags/Models/Tag'
 
 export default class Schedule extends BaseModel {
     public static table = 'schedules'

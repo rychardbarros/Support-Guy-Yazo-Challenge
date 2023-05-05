@@ -7,12 +7,12 @@ export const Header = ({ title, message }: HeaderProps) => {
   const navigate = useNavigate();
   return (
     <Flex width="100%" flexDirection="column" position="fixed" top="0" zIndex="2">
-      <Flex bg="accent.black" p={1} alignItems="center" justifyContent="space-between">
-        <Button bg="accent.yellow" h={6} color="accent.black" onClick={() => navigate('/')}>
+      <Flex bg="black.500" p={1} alignItems="center" justifyContent="space-between">
+        <Button bg="yellow.500" h={6} color="black.500" onClick={() => navigate('/')}>
           Voltar
         </Button>
         {title && (
-          <Heading fontSize="24px" color="accent.white.1000">
+          <Heading fontSize="24px" color="white.1000">
             {title}
           </Heading>
         )}

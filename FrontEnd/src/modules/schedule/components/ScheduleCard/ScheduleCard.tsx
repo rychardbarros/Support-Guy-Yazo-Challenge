@@ -7,29 +7,44 @@ import {
   RightFlexContainer,
   TitleContainer,
 } from './scheduleCard.styled';
-import MoreUsersImage from '../../../../../src/assets/Frame 16.svg';
 
 export const ScheduleCard = () => {
   return (
-    <Container bg="accent.white.900">
+    <Container bg="white.900">
       <Flex justify="space-between">
         <LeftFlexContainer>
           <TitleContainer>
-            <Icon as={BsBalloon} boxSize="24px" color="accent.black" />
-            <Text color="accent.blue.400" as="b" fontSize="32px">
+            <Icon as={BsBalloon} boxSize="24px" color="black.500" />
+            <Text color="blue.400" as="b" fontSize="32px">
               Festinha Dev Yazo
             </Text>
-            <Box bg="accent.green" borderRadius="8px" p="6px" color="accent.blue.300" as="b">
+            <Box
+              bg="green.500"
+              borderRadius="8px"
+              p="6px"
+              color="blue.300"
+              as="b"
+            >
               Festinha
             </Box>
-            <Box bg="accent.orange" borderRadius="8px" p="6px" color="accent.blue.300" as="b">
+            <Box
+              bg="orange.500"
+              borderRadius="8px"
+              p="6px"
+              color="blue.300"
+              as="b"
+            >
               Devs
             </Box>
           </TitleContainer>
 
           <LocationContainer>
             <Flex>
-              <Icon as={IoLocationOutline} boxSize="18px" color="accent.black" />
+              <Icon
+                as={IoLocationOutline}
+                boxSize="18px"
+                color="black.500"
+              />
             </Flex>
             <Text>Na casa do lago</Text>
           </LocationContainer>
@@ -79,7 +94,7 @@ export const ScheduleCard = () => {
         </LeftFlexContainer>
 
         <RightFlexContainer>
-          <Text color="accent.blue.400" as="b" fontSize="18px">
+          <Text color="blue.400" as="b" fontSize="18px">
             22 Junho
           </Text>
           <Text>16:00</Text>

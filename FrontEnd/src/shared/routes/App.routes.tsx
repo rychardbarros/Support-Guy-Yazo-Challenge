@@ -1,10 +1,9 @@
 import { Routes, Route } from 'react-router-dom';
-import { Schedule } from '../../modules/schedule/pages/Schedule';
-import { Login } from '../../modules/sessions/pages/Login/Login';
-import { Welcome } from '../../modules/sessions/pages/Welcome/Welcome';
-import { Header } from '../components/templates/Header/Header';
-import { WrapperRoutes } from '../components/templates/WrapperRoutes/WrapperRoutes';
 import { Text } from '@chakra-ui/react';
+import { Schedule } from 'modules/schedule/pages/Schedule';
+import { Login } from 'modules/sessions/pages/Login/Login';
+import { Welcome } from 'modules/welcome/pages/Welcome/Welcome';
+import { WrapperRoutes } from 'shared/components/templates/WrapperRoutes/WrapperRoutes';
 
 export const AppRoutes = () => {
   return (

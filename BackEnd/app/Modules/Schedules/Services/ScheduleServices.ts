@@ -19,29 +19,19 @@ export default class ScheduleServices {
         page = 1,
         perPage = 10,
     }: DTOs.List): Promise<PaginateContractType<typeof Schedule>> {
-        return this.schedulesRepository.listWithPagination({
+        return this.schedulesRepository.listWithPagination({ 
             page,
             perPage
         })
-    }
-
-    public async store(data: DTOs.Store): Promise<Schedule> {
-        const schedule = await this.schedulesRepository.store(data)
-
-        return schedule.refresh()
     }
 
     public async storeDefault(): Promise<void> {
         for (const data of SchedulesDefault) {
             const {tagIds, userIds, ...scheduleDto} = data
             const schedule = await this.schedulesRepository.store(scheduleDto)
-            for(const tag of tagIds) {
-                console.log({tag})
-                await schedule.related('tags').attach(tag)
-            }
-            for(const user of userIds) {
-                await schedule.related('users').attach(user)
-            }
+            await schedule.related('tags').attach(tagIds)
+            await schedule.related('users').attach(userIds)
+            
         }
     }
 }

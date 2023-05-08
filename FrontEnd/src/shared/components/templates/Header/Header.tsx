@@ -5,6 +5,8 @@ import { useNavigate } from 'react-router-dom';
 
 export const Header = ({ title, message }: HeaderProps) => {
   const navigate = useNavigate();
+
+  const texts = message ? message.split('\\n') : [''];
   return (
     <Flex width="100%" flexDirection="column" position="fixed" top="0" zIndex="2">
       <Flex bg="black.500" p={1} alignItems="center" justifyContent="space-between">
@@ -17,7 +19,14 @@ export const Header = ({ title, message }: HeaderProps) => {
           </Heading>
         )}
         <HelperMessage>
-          <Text>{message}</Text>
+          <>
+            {texts.map((text) => {
+              return (<>
+                <Text>{text}</Text>
+                <br></br>
+              </>)
+            })}
+          </>
         </HelperMessage>
       </Flex>
     </Flex>

@@ -23,7 +23,18 @@ export const AppRoutes = () => {
           element={
             <WrapperRoutes
               title="Desafio 1 - Login"
-              message="Nenhum usuário está conseguindo acessar nossa plataforma! Esta sempre retornando o erro 'Não foi possível autenticar, por favor tente novamente mais tarde'. Pode verificar o que pode estar acontecendo?"
+              message="Alguns usuários não estão conseguindo acessar nossa plataforma! Esta sempre retornando o erro 'Não foi possível autenticar, por favor tente novamente mais tarde'. Pode verificar o que pode estar acontecendo?
+              \n
+              \n Aqui tem alguns exemplos que não estão conseguindo acessar:
+              \n Login: manzoG
+              \n Senha: manzoG12345
+
+              \n
+              \nE este usuário está conseguindo logar normalmente:
+              \n Login: max
+              \n Senha: 123456
+
+              "
             >
               <Login />
             </WrapperRoutes>
@@ -49,11 +60,7 @@ export const AppRoutes = () => {
           element={
             <WrapperRoutes
               title="Desafio 3 - Relatórios"
-              message="Para realizar relatórios, é necessário acessar nosso banco de dados
-
-            URL: postgresql://postgres:?????????????????????@yazo-support-guy-challenge.???????.us-east-1.rds.amazonaws.com:5432
-
-            E realizar as respectivas querys no banco de dados."
+              message="Neste desafio você deverá retirar os relatórios pedidos abaixo, para isso você pode consultar o arquivo 'dicasParaDesafio3.MD' que está na pasta raiz do projeto.'"
             >
               <Reports />
             </WrapperRoutes>

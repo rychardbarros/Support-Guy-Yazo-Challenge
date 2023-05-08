@@ -1,9 +1,7 @@
 import { Button, Center, Flex, Input, Text } from '@chakra-ui/react';
 import { Form } from 'shared/components/molecules/Form/Form';
 import { useCallback } from 'react';
-import { ILogin } from '../../interfaces/login.interfaces';
 import { useForms } from 'shared/components/molecules/Form/hooks/useForms';
-import { Avatar } from 'shared/components/atoms/Avatar/Avatar';
 import { LoginSchema } from '../../schemas/form.schema';
 import { InputContainer } from './login.styled';
 import {
@@ -11,26 +9,26 @@ import {
   useHandleLogin,
 } from 'modules/sessions/handlers/login.handlers';
 import { useLogin } from 'modules/sessions/hooks/useLogin';
+import { Avatar } from 'shared/components/atoms/Avatar/Avatar';
 
 export const Login = () => {
-  const { handleLogin } = useHandleLogin();
-  const { createLogin, data, status } = useLogin();
+  const { handleFormLogin, handleLogin } = useHandleLogin();
+  const { createLogin, data } = useLogin();
 
   const onSubmit = useCallback(async (data: LoginType) => {
-
-    createLogin(handleLogin(data))
-
+    createLogin(handleFormLogin(data));
   }, []);
-  console.log(data);
+
   const { schemaLogin } = LoginSchema();
   const { useFormGeneric } = useForms();
   const { handleSubmit, errors, register } =
-    useFormGeneric<ILogin>(schemaLogin);
+    useFormGeneric<LoginType>(schemaLogin);
 
   return (
     <Center>
       <Form handleSubmit={handleSubmit(onSubmit)}>
-        <Avatar />
+        <Avatar data={handleLogin(data)} />
+
         <Flex flexDirection="column" gap={4} marginTop={8}>
           <InputContainer>
             <Input
@@ -38,6 +36,7 @@ export const Login = () => {
               placeholder="Insira seu Username"
               borderColor="transparent"
               bg="#242940"
+              color="white.1000"
               focusBorderColor="yellow.500"
               {...register('username')}
             />
@@ -53,6 +52,8 @@ export const Login = () => {
               borderColor="transparent"
               focusBorderColor="yellow.500"
               bg="#242940"
+              color="white.1000"
+              type="password"
               {...register('password')}
             />
 

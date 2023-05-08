@@ -1,5 +1,5 @@
-import { Box, Flex, Icon, Image, Text } from '@chakra-ui/react';
-import { BsBalloon, IoLocationOutline } from 'react-icons/all';
+import { Box, Flex, Icon, Image, Text, Tooltip } from '@chakra-ui/react';
+import { IoLocationOutline } from 'react-icons/all';
 import {
   Container,
   LeftFlexContainer,
@@ -7,98 +7,78 @@ import {
   RightFlexContainer,
   TitleContainer,
 } from './scheduleCard.styled';
+import { ScheduleCardProps } from './schedulecard.interfaces';
+import { useHandleSchedule } from 'modules/schedule/handlers/schedule.handlers';
 
-export const ScheduleCard = () => {
+export const ScheduleCard = ({
+  data: { day, startTime, endTime, tags, place, title, users },
+}: ScheduleCardProps) => {
+  const { concatScheduleUserNames } = useHandleSchedule();
+
   return (
     <Container bg="white.900">
       <Flex justify="space-between">
         <LeftFlexContainer>
           <TitleContainer>
-            <Icon as={BsBalloon} boxSize="24px" color="black.500" />
             <Text color="blue.400" as="b" fontSize="32px">
-              Festinha Dev Yazo
+              {title}
             </Text>
-            <Box
-              bg="green.500"
-              borderRadius="8px"
-              p="6px"
-              color="blue.300"
-              as="b"
-            >
-              Festinha
-            </Box>
-            <Box
-              bg="orange.500"
-              borderRadius="8px"
-              p="6px"
-              color="blue.300"
-              as="b"
-            >
-              Devs
-            </Box>
+            {tags.map(tag => (
+              <Box
+                bg={tag.color}
+                borderRadius="8px"
+                p="6px"
+                color="blue.300"
+                as="b"
+                minW="78px"
+                textAlign="center"
+              >
+                {tag.title}
+              </Box>
+            ))}
           </TitleContainer>
 
           <LocationContainer>
             <Flex>
-              <Icon
-                as={IoLocationOutline}
-                boxSize="18px"
-                color="black.500"
-              />
+              <Icon as={IoLocationOutline} boxSize="18px" color="black.500" />
             </Flex>
-            <Text>Na casa do lago</Text>
+            <Text>{place}</Text>
           </LocationContainer>
 
           <Flex gap="16px">
-            <Image
-              src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTh9h7hpVIHaLYalBISnldpCoxOrybqBo0CUi_m-r-Yqh0LFxefLXSdj-Ikbo6lyFHjDfc&usqp=CAU"
-              objectFit="cover"
-              alt="Dan Abramov"
-              borderRadius="full"
-              boxSize="44px"
-              title="Dan"
-            />
-            <Image
-              src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTh9h7hpVIHaLYalBISnldpCoxOrybqBo0CUi_m-r-Yqh0LFxefLXSdj-Ikbo6lyFHjDfc&usqp=CAU"
-              objectFit="cover"
-              alt="Dan Abramov"
-              borderRadius="full"
-              boxSize="44px"
-              title="Dan"
-            />
-            <Image
-              src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTh9h7hpVIHaLYalBISnldpCoxOrybqBo0CUi_m-r-Yqh0LFxefLXSdj-Ikbo6lyFHjDfc&usqp=CAU"
-              objectFit="cover"
-              alt="Dan Abramov"
-              borderRadius="full"
-              boxSize="44px"
-              title="Dan"
-            />
-            <Image
-              src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTh9h7hpVIHaLYalBISnldpCoxOrybqBo0CUi_m-r-Yqh0LFxefLXSdj-Ikbo6lyFHjDfc&usqp=CAU"
-              objectFit="cover"
-              alt="Dan Abramov"
-              borderRadius="full"
-              boxSize="44px"
-              title="Dan"
-            />
-            <Image
-              src="/src/assets/Frame 16.svg"
-              objectFit="cover"
-              alt="Dan Abramov"
-              borderRadius="full"
-              boxSize="44px"
-              title="Dan"
-            />
+            {users
+              .slice(0, 4)
+              .sort(() => 0.5 - Math.random())
+              .map(user => (
+                <Image
+                  src={user.source_image}
+                  objectFit="cover"
+                  alt={user.first_name}
+                  borderRadius="full"
+                  boxSize="44px"
+                  title={user.first_name}
+                  key={user.id}
+                />
+              ))}
+            {users.length > 4 && (
+              <Tooltip label={concatScheduleUserNames(users)} fontSize="md">
+                <Image
+                  src="/src/assets/Frame 16.svg"
+                  objectFit="cover"
+                  borderRadius="full"
+                  boxSize="44px"
+                />
+              </Tooltip>
+            )}
           </Flex>
         </LeftFlexContainer>
 
         <RightFlexContainer>
-          <Text color="blue.400" as="b" fontSize="18px">
-            22 Junho
+          <Text color="blue.400" as="b" fontSize="18px" align="center">
+            {day}
           </Text>
-          <Text>16:00</Text>
-          <Text>22:00</Text>
+          <Text>{startTime}</Text>
+          <Text>{endTime}</Text>
         </RightFlexContainer>
       </Flex>
     </Container>

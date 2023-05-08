@@ -1,5 +1,4 @@
 import { Routes, Route } from 'react-router-dom';
-import { Text } from '@chakra-ui/react';
 import { Schedule } from 'modules/schedule/pages/Schedule';
 import { Login } from 'modules/sessions/pages/Login/Login';
 import { Welcome } from 'modules/welcome/pages/Welcome/Welcome';
@@ -24,10 +23,7 @@ export const AppRoutes = () => {
           element={
             <WrapperRoutes
               title="Desafio 1 - Login"
-              message="O usuário não consegue acessar nossa plataforma, aparece o erro 'Não foi possível autenticar, por favor tente novamente mais tarde'., pode verificar o que pode estar acontecendo?
-              Usuário:
-              Email: luciano.jazz@gmail.com
-              Senha: luc2Jazz5@"
+              message="Nenhum usuário está conseguindo acessar nossa plataforma! Esta sempre retornando o erro 'Não foi possível autenticar, por favor tente novamente mais tarde'. Pode verificar o que pode estar acontecendo?"
             >
               <Login />
             </WrapperRoutes>
@@ -41,7 +37,7 @@ export const AppRoutes = () => {
               title="Desafio 2 - Agenda"
               message='Não está sendo possível filtrar as agendas.
 
-            Estou tentando filtrar por nome "Festinha Dev Yazo" para aparecer somente essa agenda, mas o botão "Procurar" não funciona.'
+            Estou tentando filtrar por nome "Festinha Dev Yazo" para aparecer somente essa agenda, mas não funciona.'
             >
               <Schedule />
             </WrapperRoutes>

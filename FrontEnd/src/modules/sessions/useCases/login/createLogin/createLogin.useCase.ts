@@ -1,15 +1,15 @@
+import { useCallback } from 'react';
 import { createLoginAPI } from 'modules/sessions/apis/login.apis';
 import { ICreateLoginDTO } from 'modules/sessions/interfaces/dtos/login.create.dtos';
-import { ILoginRepository } from 'modules/sessions/repositories/ILoginRepository';
-import { useCallback } from 'react';
+import { IUserRepository } from 'modules/sessions/repositories/ILoginRepository';
 
-export const useCreateLoginUseCase = ({ create }: ILoginRepository) => {
+export const useCreateLoginUseCase = ({ create }: IUserRepository) => {
   const execute = useCallback(
     async (data: ICreateLoginDTO) => {
       const response = await createLoginAPI(data);
-      create(response.data);
+      create?.(response.data);
 
-      return response;
+      return response.data;
     },
     [create]
   );

@@ -1,22 +1,36 @@
 import { Flex } from '@chakra-ui/react';
-// import { ScheduleCard } from '../components/ScheduleCard/ScheduleCard';
 import { SearchBar } from 'shared/components/molecules/SearchBar/SearchBar';
-import { useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import { ScheduleCard } from '../components/ScheduleCard/ScheduleCard';
+import { useSchedule } from '../hooks/useSchedule';
+import { useHandleSchedule } from '../handlers/schedule.handlers';
 
 export const Schedule = () => {
-  const [search, setSearch] = useState<string>('');
+  const { schedules, listSchedule, status } = useSchedule();
+  const { handleSchedule } = useHandleSchedule();
+  const [search, setSearch] = useState<string>();
+
+  const loadCategories = useCallback(
+    (p = 1) => {
+      listSchedule({ page: p, search });
+    },
+    [listSchedule, search]
+  );
+
+  useEffect(() => {
+    loadCategories();
+  }, [loadCategories]);
+
   return (
     <Flex gap="8px" flexDirection="column">
       <SearchBar
         placeholder="Pesquise por nome ou local da agenda"
-        isSearching={false}
+        isSearching={status === 'searching'}
         onChange={(value: string) => setSearch(value)}
       />
-      <ScheduleCard />
-      <ScheduleCard />
-      <ScheduleCard />
-      <ScheduleCard />
+      {schedules.map(schedule => (
+        <ScheduleCard data={handleSchedule(schedule)} />
+      ))}
     </Flex>
   );
 };

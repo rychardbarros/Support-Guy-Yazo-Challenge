@@ -1,15 +1,14 @@
-import { Center, Heading } from '@chakra-ui/react';
-import { Image, Flex } from './Avatar.styled';
+import { Center, Text } from '@chakra-ui/react';
+import { Image } from './Avatar.styled';
+import { AvatarProps } from './avatar.interface';
 
-export function Avatar() {
+export const Avatar = ({ data }: AvatarProps) => {
+  const { sourceImage, firstName } = data;
+
   return (
     <Center flexDirection="column">
-      <Image
-        src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTh9h7hpVIHaLYalBISnldpCoxOrybqBo0CUi_m-r-Yqh0LFxefLXSdj-Ikbo6lyFHjDfc&usqp=CAU"
-        objectFit="cover"
-        alt="Dan Abramov"
-      />
-      <Heading color="orange.4000">Alucard Bestial</Heading>
+      <Image src={sourceImage} objectFit="cover" alt={firstName} w="300px" />
+      <Text color="yellow.500" fontSize="18px">{firstName}</Text>
     </Center>
   );
-}
+};

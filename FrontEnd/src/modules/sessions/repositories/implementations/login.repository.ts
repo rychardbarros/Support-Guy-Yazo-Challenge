@@ -1,15 +1,15 @@
 import { useState } from 'react';
 
-import { ILogin } from 'modules/sessions/interfaces/login.interfaces';
+import { IUser } from 'modules/sessions/interfaces/login.interfaces';
 import { useSideEffects } from 'shared/hooks/useSideEffects';
-import { ILoginRepository } from '../ILoginRepository';
+import { IUserRepository } from '../IUserRepository';
 
-export const useLoginRepository = (): ILoginRepository => {
-  const [data, setData] = useState<ILogin[]>([]);
-  const { create } = useSideEffects<ILogin>(setData);
+export const useLoginRepository = (): IUserRepository => {
+  const [data, setData] = useState<IUser[]>([]);
+  const { create } = useSideEffects<IUser>(setData);
 
   return {
-    data,
+    data: data.pop(),
     create,
   };
 };

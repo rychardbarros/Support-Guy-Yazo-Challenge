@@ -115,7 +115,7 @@ export const UsersDefault: Array<UserDefaultType> = [
     email: 'luis.vitor@email.com',
     password: 'L.Vit',
     roleName: 'user',
-    source_image: 'hhttps://image.winudf.com/v2/image1/bmV0LmJlYXV0eXdhbGxwYXBlci5hbmltZV9ib3lfcHJvZmlsZV9waWN0dXJlX3NjcmVlbl81XzE2NjQ4NzgyMzJfMDYx/screen-5.webp?fakeurl=1&type=.webp'
+    source_image: 'https://image.winudf.com/v2/image1/bmV0LmJlYXV0eXdhbGxwYXBlci5hbmltZV9ib3lfcHJvZmlsZV9waWN0dXJlX3NjcmVlbl81XzE2NjQ4NzgyMzJfMDYx/screen-5.webp?fakeurl=1&type=.webp'
   },
   {
     first_name: 'Gian',

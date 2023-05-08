@@ -3,15 +3,15 @@ import Tag from '../Models/Tag'
 
 export const TagsDefault: Array<ModelType<typeof Tag>> = [
     {
-        title: 'Tag 1',
-        color: '#FF0000'
+        title: 'Dev',
+        color: '#F2A97F'
     },
     {
-        title: 'Tag 2',
-        color: '#00FF00'
+        title: 'Festinha',
+        color: '#BEF493'
     },
     {
-        title: 'Tag 3',
-        color: '#0000FF'
+        title: 'Desafio',
+        color: '#BF4FF3'
     },
 ]

@@ -6,4 +6,3 @@ Route.group(() => {
     Route.get('/', new SchedulesController().list).as('schedules.list')
 })
     .prefix('schedules')
-    .middleware(['auth', 'acl:root,Admin,user,guest'])

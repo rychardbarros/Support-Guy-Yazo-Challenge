@@ -20,7 +20,7 @@ export default class ScheduleServices {
         perPage = 10,
         search,
     }: DTOs.List): Promise<PaginateContractType<typeof Schedule>> {
-        return this.schedulesRepository.listWithPagination({ 
+        return this.schedulesRepository.listWithPagination({
             page,
             perPage,
             scopes: (scopes) => {
@@ -35,7 +35,7 @@ export default class ScheduleServices {
             const schedule = await this.schedulesRepository.store(scheduleDto)
             await schedule.related('tags').attach(tagIds)
             await schedule.related('users').attach(userIds)
-            
+
         }
     }
 }

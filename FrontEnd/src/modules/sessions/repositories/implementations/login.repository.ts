@@ -2,7 +2,7 @@ import { useState } from 'react';
 
 import { IUser } from 'modules/sessions/interfaces/login.interfaces';
 import { useSideEffects } from 'shared/hooks/useSideEffects';
-import { IUserRepository } from '../IUserRepository';
+import { IUserRepository } from '../ILoginRepository';
 
 export const useLoginRepository = (): IUserRepository => {
   const [data, setData] = useState<IUser[]>([]);

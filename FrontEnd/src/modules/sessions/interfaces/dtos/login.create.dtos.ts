@@ -6,4 +6,4 @@ export type ICreateLoginDTO = {
   password: string;
 };
 
-export type ICreateLoginAPI = Promise<AxiosResponse<IUser>>;
+export type ICreateLoginAPI = Promise<IUser | AxiosResponse<IUser>>;

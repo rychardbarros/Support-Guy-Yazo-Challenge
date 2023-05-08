@@ -63,7 +63,7 @@ export const Login = () => {
           </InputContainer>
 
           <Button bg="yellow.500" type="submit" width="300px">
-            Submit
+            Entrar
           </Button>
         </Flex>
       </Form>

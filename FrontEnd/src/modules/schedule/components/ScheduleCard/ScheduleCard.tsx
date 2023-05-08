@@ -48,7 +48,6 @@ export const ScheduleCard = ({
           <Flex gap="16px">
             {users
               .slice(0, 4)
-              .sort(() => 0.5 - Math.random())
               .map(user => (
                 <Image
                   src={user.source_image}

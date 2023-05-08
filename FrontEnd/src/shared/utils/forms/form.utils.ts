@@ -13,4 +13,4 @@ export const debounceEvent = <T extends (...args: any[]) => void>(
     }
     time = setTimeout(() => func(...args), wait);
   };
-}
+};

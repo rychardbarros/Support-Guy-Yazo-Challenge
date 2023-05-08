@@ -27,7 +27,7 @@ export function Reports() {
           Todas as agendas que acontecerão no dia 10 de maio;
         </ListItem>
         <ListItem color="white.1000">
-          Todas as agendas que o usuário Max participou;
+          Todas as agendas que o usuário Luís participou;
         </ListItem>
       </UnorderedList>
       <Heading fontSize={24} color="white.1000" textAlign="center">

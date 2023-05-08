@@ -8,7 +8,9 @@ export const Avatar = ({ data }: AvatarProps) => {
   return (
     <Center flexDirection="column">
       <Image src={sourceImage} objectFit="cover" alt={firstName} w="300px" />
-      <Text color="yellow.500" fontSize="18px">{firstName}</Text>
+      <Text color="yellow.500" fontSize="18px">
+        {firstName}
+      </Text>
     </Center>
   );
 };

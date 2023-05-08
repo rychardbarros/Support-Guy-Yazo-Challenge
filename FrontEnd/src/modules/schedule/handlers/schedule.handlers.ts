@@ -30,7 +30,7 @@ export const useHandleSchedule = () => {
         tags,
         place,
         title,
-        users,
+        users: users.sort(() => 0.5 - Math.random()),
       };
     },
     []

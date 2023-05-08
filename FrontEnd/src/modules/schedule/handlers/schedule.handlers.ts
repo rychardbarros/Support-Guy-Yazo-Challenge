@@ -1,6 +1,7 @@
 import { useCallback } from 'react';
 import { ISchedule } from '../interfaces/schedule.interfaces';
 import { ScheduleCardProps } from '../components/ScheduleCard/schedulecard.interfaces';
+import { User } from 'modules/sessions/interfaces/login.interfaces';
 
 export const useHandleSchedule = () => {
   const handleSchedule = useCallback(
@@ -35,5 +36,10 @@ export const useHandleSchedule = () => {
     []
   );
 
-  return { handleSchedule };
+  const concatScheduleUserNames = (users: User[]) => {
+    const names = users.slice(4).map(user => user.first_name);
+    return names.join(', ');
+  };
+
+  return { handleSchedule, concatScheduleUserNames };
 };

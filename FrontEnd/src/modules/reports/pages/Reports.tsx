@@ -14,10 +14,9 @@ export function Reports() {
         height="114px"
         width="122px"
         alt="Logo Yazo"
-        // marginBottom="140px"
       />
-      <Heading fontSize={26} color="yellow.500">
-        Para este desafio precisamos que você tire um relatório das agendas:
+      <Heading fontSize={24} color="yellow.500" textAlign="center">
+        Para este desafio precisamos que você tire relatórios das agendas:
       </Heading>
       <UnorderedList>
         <ListItem color="white.1000">Todas as agendas;</ListItem>
@@ -25,14 +24,14 @@ export function Reports() {
           Todas as agendas com a tag “Dev”;
         </ListItem>
         <ListItem color="white.1000">
-          Todas as agendas do período de 1 de junho a 1 de julho;
+          Todas as agendas que acontecerão no dia 10 de maio;
         </ListItem>
         <ListItem color="white.1000">
           Todas as agendas que o usuário Max participou;
         </ListItem>
       </UnorderedList>
-      <Heading fontSize={26} color="white.1000">
-        ~ Subir para uma pasta dentro do projeto os relatórios e a query ~
+      <Heading fontSize={24} color="white.1000" textAlign="center">
+        Para concluir o desafio, suba os relatórios para a pasta "reports" localizada na raiz do projeto, escreva as query utilizadas no arquivo querys.md
       </Heading>
     </Center>
   );

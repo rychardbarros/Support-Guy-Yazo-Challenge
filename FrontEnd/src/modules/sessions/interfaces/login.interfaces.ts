@@ -2,7 +2,8 @@ export interface IUser {
   user: User;
 }
 
-type User = {
+export type User = {
+  id: number;
   username: string;
   password: string;
   first_name: string;

@@ -1,5 +1,5 @@
-import { Box, Flex, Icon, Image, Text } from '@chakra-ui/react';
-import { BsBalloon, IoLocationOutline } from 'react-icons/all';
+import { Box, Flex, Icon, Image, Text, Tooltip } from '@chakra-ui/react';
+import { IoLocationOutline } from 'react-icons/all';
 import {
   Container,
   LeftFlexContainer,
@@ -8,16 +8,18 @@ import {
   TitleContainer,
 } from './scheduleCard.styled';
 import { ScheduleCardProps } from './schedulecard.interfaces';
+import { useHandleSchedule } from 'modules/schedule/handlers/schedule.handlers';
 
-export const ScheduleCard = ({ data }: ScheduleCardProps) => {
-  const { day, startTime, endTime, tags, place, title, users } = data;
+export const ScheduleCard = ({
+  data: { day, startTime, endTime, tags, place, title, users },
+}: ScheduleCardProps) => {
+  const { concatScheduleUserNames } = useHandleSchedule();
 
   return (
     <Container bg="white.900">
       <Flex justify="space-between">
         <LeftFlexContainer>
           <TitleContainer>
-            <Icon as={BsBalloon} boxSize="24px" color="black.500" />
             <Text color="blue.400" as="b" fontSize="32px">
               {title}
             </Text>
@@ -28,6 +30,8 @@ export const ScheduleCard = ({ data }: ScheduleCardProps) => {
                 p="6px"
                 color="blue.300"
                 as="b"
+                minW="78px"
+                textAlign="center"
               >
                 {tag.title}
               </Box>
@@ -42,30 +46,35 @@ export const ScheduleCard = ({ data }: ScheduleCardProps) => {
           </LocationContainer>
 
           <Flex gap="16px">
-            {users.map(user => (
-              <Image
-                src={user.souce_image}
-                objectFit="cover"
-                alt={user.first_name}
-                borderRadius="full"
-                boxSize="44px"
-                title={user.first_name}
-                key={user.id}
-              />
-            ))}
-            <Image
-              src="/src/assets/Frame 16.svg"
-              objectFit="cover"
-              alt="Dan Abramov"
-              borderRadius="full"
-              boxSize="44px"
-              title="Dan"
-            />
+            {users
+              .slice(0, 4)
+              .sort(() => 0.5 - Math.random())
+              .map(user => (
+                <Image
+                  src={user.source_image}
+                  objectFit="cover"
+                  alt={user.first_name}
+                  borderRadius="full"
+                  boxSize="44px"
+                  title={user.first_name}
+                  key={user.id}
+                />
+              ))}
+            {users.length > 4 && (
+              <Tooltip label={concatScheduleUserNames(users)} fontSize="md">
+                <Image
+                  src="/src/assets/Frame 16.svg"
+                  objectFit="cover"
+                  borderRadius="full"
+                  boxSize="44px"
+                />
+              </Tooltip>
+            )}
           </Flex>
         </LeftFlexContainer>
 
         <RightFlexContainer>
-          <Text color="blue.400" as="b" fontSize="18px">
+          <Text color="blue.400" as="b" fontSize="18px" align="center">
             {day}
           </Text>
           <Text>{startTime}</Text>

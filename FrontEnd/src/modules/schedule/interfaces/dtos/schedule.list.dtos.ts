@@ -3,4 +3,4 @@ import { ISchedule } from '../schedule.interfaces';
 
 export type IListScheduleDTO = IListDTO;
 
-export type IListScheduleAPI = IListAPI<ISchedule[]>;
+export type IListScheduleAPI = Promise<ISchedule | IListAPI<ISchedule[]>>;

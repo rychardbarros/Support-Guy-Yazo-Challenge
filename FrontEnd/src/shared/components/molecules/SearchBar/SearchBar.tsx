@@ -12,7 +12,6 @@ export const SearchBar = ({
   style,
   ...rest
 }: SearchBarProps) => {
-
   const inputRef = useRef<HTMLInputElement>(null);
 
   const onSearchChange = () => {
@@ -30,8 +29,10 @@ export const SearchBar = ({
           id={inputId}
           defaultValue={defaultValue}
           placeholder={placeholder}
+          color="blue.400"
           onChange={debounceEvent(onSearchChange, 500)}
           variant="filled"
+          bg="white.800"
           borderEndRadius={isSearching ? 0 : 8}
         />
       </Flex>

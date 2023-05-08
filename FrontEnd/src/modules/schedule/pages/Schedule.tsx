@@ -12,9 +12,9 @@ export const Schedule = () => {
 
   const loadCategories = useCallback(
     (p = 1) => {
-      listSchedule({ page: p, search });
+      listSchedule({ page: p });
     },
-    [listSchedule, search]
+    [listSchedule]
   );
 
   useEffect(() => {

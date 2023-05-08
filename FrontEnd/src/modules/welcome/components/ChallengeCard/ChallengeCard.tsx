@@ -2,7 +2,11 @@ import { Box, Button, LinkBox, Text } from '@chakra-ui/react';
 import { ChallengeCardProps } from './challengeCard.interfaces';
 import { useNavigate } from 'react-router-dom';
 
-export function ChallengeCard({ titleChallenge, descriptionChallenge, link }: ChallengeCardProps) {
+export function ChallengeCard({
+  titleChallenge,
+  descriptionChallenge,
+  link,
+}: ChallengeCardProps) {
   const navigate = useNavigate();
   return (
     <LinkBox maxW="sm" p="5" borderWidth="1px" rounded="md">

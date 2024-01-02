@@ -11,15 +11,15 @@ export const Schedule = () => {
   const [search, setSearch] = useState<string>();
 
   const loadCategories = useCallback(
-    (p = 1) => {
-      listSchedule({ page: p, search });
+    (p = 1, s = '') => {
+      listSchedule({ page: p, search: s });
     },
-    [listSchedule, search]
+    [listSchedule]
   );
 
   useEffect(() => {
-    loadCategories();
-  }, [loadCategories]);
+    loadCategories(1, search);
+  }, [loadCategories, search]);
 
   return (
     <Flex gap="8px" flexDirection="column">

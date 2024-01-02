@@ -6,11 +6,11 @@ import {
 
 export const listScheduleAPI = ({
   page,
-  search
+  search,
 }: IListScheduleDTO): IListScheduleAPI =>
   api.get('schedules', {
     params: {
       page,
-      search
+      search,
     },
   });

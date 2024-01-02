@@ -11,11 +11,10 @@ export default class AuthController {
   public async login({ request, auth, response }: HttpContextContract): Promise<void> {
     const { uid, password } = await request.validate({ schema: LoginSchema })
 
-    const caseUid = uid
     try {
       const token = await auth
         .use('api')
-        .attempt(caseUid, password, { name: 'acl-token', expiresIn: '1h' })
+        .attempt(uid, password, { name: 'acl-token', expiresIn: '1h' })
 
       return response.json({ auth: token, user: auth.user })
     } catch (error) {

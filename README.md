@@ -1,14 +1,3 @@
-# Solução dos Desafios
-## Desafio 01
-Antes de tudo, verifiquei no banco de dados se o usuário existia. Também percebi que ele era o único que possuía letras maiúsculas no login. Então, fui para o backend e examinei os controllers de autenticação. A variável que estava recebendo o UID tinha o método `toLowerCase()`, o que fazia com que o username inserido ficasse em minúsculo. Isso impossibilitava que o usuário "manzoG", por ter uma letra maiúscula, conseguisse fazer login.
-
-## Desafio 02
-Ao analisar as DevTools, percebi que o frontend não estava conseguindo fazer a chamada para a API. Fui para o arquivo `schedule.apis.ts` e verifiquei que o parâmetro `search` não estava sendo passado. Ao realizar o teste, percebi que ainda não estava funcionando. Após uma busca mais aprofundada, cheguei ao arquivo `Schedule.tsx` na pasta `pages` e notei que o `listSchedule` não estava recebendo o parâmetro `search`. Ao adicioná-lo e realizar o teste novamente, constatei que esse era o problema.
-
-## Desafio 03
-Disponibilizei as consultas feitas para obter os dados necessarios em Reports.
-
-
 <h1 align="center">
 🐦 Support Guy Yazo Challenge 🐦
 </h1>
